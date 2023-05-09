@@ -21,8 +21,8 @@ if (args.h) {
   process.exit(0);
 }
 
-const latitude = parseFloat(args.n.toFixed(2)) || parseFloat(args.s.toFixed(2));
-const longitude = parseFloat(args.e.toFixed(2)) || parseFloat(args.w.toFixed(2));
+const latitude = Number(args.n).toFixed(2) || Number(args.s).toFixed(2);
+const longitude = Number(args.e).toFixed(2) || Number(args.w).toFixed(2);
 const timezone = args.z || mnt.tz.guess();
 const day = args.d || 1;
 
@@ -43,9 +43,9 @@ function getWeatherData(data) {
     console.log(JSON.stringify(data, null, 2));
     process.exit(0);
   }
-
-  const precipitationHours = data.daily.precipitation_hours[day];
-
+  const day = args.d || 1;
+  //const precipitationHours = data.daily.precipitation_hours[day];
+  const precipitationHours = 0;
   if (precipitationHours > 0) {
     console.log('You might need your galoshes');
   } else {
