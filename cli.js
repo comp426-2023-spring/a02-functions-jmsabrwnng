@@ -21,8 +21,8 @@ if (args.h) {
   process.exit(0);
 }
 
-const latitude = args.n || args.s;
-const longitude = args.e || args.w;
+const latitude = parseFloat(args.n.toFixed(2)) || parseFloat(args.s.toFixed(2));
+const longitude = parseFloat(args.e.toFixed(2)) || parseFloat(args.w.toFixed(2));
 const timezone = args.z || mnt.tz.guess();
 const day = args.d || 1;
 
